@@ -35,7 +35,7 @@ class Person(object):
         self.circle_id = canvas.create_oval(x0,y0,x1,y1, fill=fill, outline='')
         
 
-    # A  Method that moves the agents a random number between +2 or minus -2 on the x and y values
+    # A  Method that moves the agents a random number between +5 or minus -5 on the x and y values
     def move(self):
         x1, y1, x2, y2 = self.canvas.bbox(self.circle_id)
         if not self.isolation:
@@ -47,10 +47,10 @@ class Person(object):
             self.y = self.y + dy
         
         self.agent_isolationtimer()
-        self.agent_infectedtimer() # We try to use our infected timer Method in the move loop
+        self.agent_infectedtimer() 
         self.agent_smittestop()
 
-    #A method that is called if someone with smittestop has been infected
+    # A method that is called if someone with smittestop has been infected
     def notifikation(self):
         self.canvas.itemconfig(self.circle_id, fill='orange')
         self.isolation = True
@@ -169,7 +169,7 @@ class App(object):
         for p in self.persons:
             if p.infected:
                 ni += 1
-        #Some data that gets printed in the terminal
+
         print(ni)
         if stopper == 0.4:
             self.smittede2.append(ni)
